@@ -1,0 +1,368 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="~/Content/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/Content/css/sb-admin.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+    #chartdiv {
+      width: 100%;
+      height: 700px;
+    }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+        <a class="navbar-brand mr-1" href="index">Sigma</a>
+
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navbar Search -->
+        @*<form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>*@
+
+        <!-- Navbar -->
+        @*<ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown no-arrow mx-1">
+                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bell fa-fw"></i>
+                        <span class="badge badge-danger">9+</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown no-arrow mx-1">
+                    <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-envelope fa-fw"></i>
+                        <span class="badge badge-danger">7</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle fa-fw"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Activity Log</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                    </div>
+                </li>
+            </ul>*@
+
+    </nav>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="sidebar navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="Vagas">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Vagas</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Paginas</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    <a class="dropdown-item" href="CadastroVagas">Cadastro de Vagas</a>
+                    <a class="dropdown-item" href="CadastroUsuarios">Cadastro de Usuarios</a>
+                    <a class="dropdown-item" href="CadastroDeCurriculos">Cadastro de Curriculos</a>
+                    <a class="dropdown-item" href="AberturaDeChamado">Abrir Chamado</a>
+                    <a class="dropdown-item" href="ListaUsuarios">Lista de Usuarios</a>
+
+                </div>
+            </li>
+
+        </ul>
+        <div id="content-wrapper">
+
+            <div class="container-fluid">
+
+
+                <h6>Dashboard Vagas</h6>
+                <div id="chartdiv"></div>
+
+
+
+
+            </div>
+            <!-- /.container-fluid -->
+            <!-- Sticky Footer -->
+            <footer class="sticky-footer">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright © Sigma 2019</span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!-- /.content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="~/Content/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/Content/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="~/Content/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/Content/js/sb-admin.min.js"></script>
+
+    <!-- Demo scripts for this page-->
+    <script src="~/Content/js/demo/datatables-demo.js"></script>
+    <script src="~/Content/js/demo/chart-area-demo.js"></script>
+
+    @*amcharts*@
+
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <!-- Chart code -->
+    <script>
+        am4core.ready(function () {
+
+            // Themes begin
+            am4core.useTheme(am4themes_animated);
+            // Themes end
+
+            var data = {
+                "Audi": { "Dev. Junior Front-End": 407, "Dev. Pleno Front-End": 8903, "Dev. Senior Front-End": 2721 },
+                "Bentley": { "Dev. Junior Front-End": 407, "Dev. Pleno Front-End": 8903, "Dev. Senior Front-End": 2721 },
+                "BMW": { "2-Series": 11737, "3-Series": 59449, "4-Series": 39634, "5-Series": 40658, "6-Series": 3355, "7-Series": 9276, "i3": 6276, "i8": 488, "X1": 30826, "X3": 40691, "X4": 5198, "X5": 50815, "X6": 6780, "Z4": 502 },
+                "Buick": { "Cascada": 5595, "Enclave": 48564, "Encore": 88035, "Envision": 41040, "LaCrosse": 20161, "Regal": 11559, "Verano": 4277 },
+                "Cadillac": { "ATS": 13100, "CT6": 10542, "CTS": 10344, "ELR": 17, "Escalade": 37694, "SRX": 156, "XT5": 68312, "XTS": 16275 },
+                "Chevrolet": { "Bolt": 23297, "Camaro": 67940, "Caprice PPV": 693, "City Express": 8348, "Colorado": 112996, "Corvette": 25079, "Cruze": 184751, "Equinox": 290458, "Express": 69164, "Impala": 75877, "Malibu": 185857, "Silverado": 585864, "Sonic": 30290, "Spark": 22589, "SS": 4055, "Suburban": 56516, "Tahoe": 98961, "Traverse": 123506, "Trax": 79289, "Volt": 20349 },
+                "Chrysler": { "200": 18457, "300": 51237, "Pacifica": 118274, "Town & Country": 577 },
+                "Dodge": { "Avenger": 14, "Challenger": 64537, "Charger": 88351, "Dart": 10082, "Durango": 68761, "Grand Caravan": 125196, "Journey": 89470, "Viper": 585, "RAM P/U": 500723, "RAM ProMaster": 40483, "RAM ProMaster City": 15584 },
+                "Fiat": { "124 Spider": 4478, "500": 12685, "500L": 1664, "500X": 7665 },
+                "Ford": { "C-Max": 18390, "Edge": 142603, "Escape": 308296, "E-Series": 53304, "Expedition": 51883, "Explorer": 271131, "Fiesta": 46249, "Flex": 22389, "Focus": 158385, "F-Series": 896764, "Fusion": 209623, "GT": 89, "Mustang": 81866, "Taurus": 41236, "Transit": 127360, "Transit Connect": 34473 },
+                "Genesis": { "G80": 16196, "G90": 4398 },
+                "GMC": { "Acadia": 111276, "Canyon": 32106, "Savana": 29679, "Sierra": 217943, "Terrain": 85441, "Yukon": 49183, "Yukon XL": 35059 },
+                "Honda": { "Accord": 322655, "Civic": 377286, "Clarity FCV": 2455, "Crosstour": 5, "CR-V": 377895, "CR-Z": 705, "Fit": 49454, "HR-V": 94034, "Insight": 3, "Odyssey": 100307, "Pilot": 127279, "Ridgeline": 34749 },
+                "Hyundai": { "Accent": 58955, "Azera": 3060, "Elantra": 198210, "Equus": 20, "Genesis": 1152, "Ioniq": 11197, "Santa Fe": 133171, "Sonata": 131803, "Tucson": 114735, "Veloster": 12658 },
+                "Infiniti": { "Q50": 40739, "Q60": 10751, "Q70": 5772, "QX30": 14093, "QX50": 16857, "QX60": 40444, "QX70": 6878, "QX80": 17881 },
+                "Jaguar": { "F-Pace": 18946, "F-Type": 4108, "XE": 9278, "XF": 4541, "XJ": 2721 },
+                "Jeep": { "Cherokee": 169882, "Compass": 83253, "Grand Cherokee": 240696, "Patriot": 10735, "Renegade": 103434, "Wrangler": 190522 },
+                "Kia": { "Cadenza": 7249, "Forte": 117596, "K900": 455, "Niro": 27237, "Optima": 107493, "Rio": 16760, "Sedona": 23815, "Sorento": 99684, "Soul": 115712, "Sportage": 72824, "Stinger": 843 },
+                "Land Rover": { "Discovery / LR4": 6398, "Discovery Sport": 14187, "Range Rover": 16869, "Range Rover Evoque": 11979, "Range Rover Sport": 19153, "Range Rover Velar": 6153 },
+                "Lexus": { "CT": 4690, "ES": 51398, "GS": 7773, "GX": 27190, "IS": 26482, "LC": 2487, "LFA": 3, "LS": 4094, "LX": 6004, "NX": 59341, "RC": 7363, "RX": 108307 },
+                "Lincoln": { "Continental": 12012, "MKC": 27048, "MKS": 153, "MKT": 3005, "MKX": 31031, "MKZ": 27387, "Navigator": 10523 },
+                "Maserati": { "Ghibli": 5531, "GranTurismo": 1018, "Levante": 5448, "Quattroporte": 1700 },
+                "Mazda": { "3": 75018, "5": 10, "6": 33402, "CX-3": 16355, "CX-5": 127563, "CX-9": 25828, "MX-5 Miata": 11294 },
+                "Mercedes-Benz": { "B-Class": 744, "C-Class": 77447, "CLA-Class": 20669, "E / CLS-Class": 51312, "G-Class": 4188, "GLA-Class": 24104, "GLC-Class": 48643, "GLE-Class": 54595, "GLS-Class": 32248, "Metris": 7579, "S-Class": 15888, "SLC-Class": 2860, "SL-Class": 2940, "Sprinter": 27415 },
+                "Mini": { "Cooper": 32232, "Countryman": 14864, "Paceman": 9 },
+                "Mitsubishi": { "i MiEV": 6, "Lancer": 12725, "Mirage": 22386, "Outlander": 35310, "Outlander PHEV": 99, "Outlander Sport": 33160 },
+                "Nissan": { "370Z": 4614, "Altima": 254996, "Armada": 35667, "Frontier": 74360, "GT-R": 578, "Juke": 10157, "Leaf": 11230, "Maxima": 67627, "Murano": 76732, "NV": 17858, "NV200": 18602, "Pathfinder": 81065, "Quest": 4950, "Rogue": 403465, "Sentra": 218451, "Titan": 52924, "Versa": 106772, "Xterra": 1 },
+                "Porsche": { "911": 8970, "Boxster": 2287, "Cayenne": 13203, "Cayman": 2800, "Macan": 21429, "Panamera": 6431 },
+                "Smart": { "Fortwo": 3071 },
+                "Subaru": { "BRZ": 4131, "Crosstrek": 110138, "Forester": 177563, "Impreza": 117401, "Legacy": 49837, "Outback": 188886 },
+                "Tesla": { "Model 3": 2320, "Model S †": 28800, "Model X †": 24000 },
+                "Toyota": { "4Runner": 128296, "86/Scion FR-S": 6846, "Avalon": 32583, "Camry": 387081, "C-HR": 25755, "Corolla": 329196, "FJ Cruiser": 4, "Highlander": 215775, "Land Cruiser": 3100, "Mirai": 1838, "Prius": 108662, "RAV4": 407594, "Sequoia": 12156, "Sienna": 111489, "Tacoma": 198124, "Tundra": 116285, "Venza": 14, "Yaris": 44380 },
+                "Volkswagen": { "Atlas": 27119, "Beetle": 15166, "CC": 1355, "Eos": 1, "Golf": 68978, "Jetta": 115807, "Passat": 60722, "Tiguan": 46983, "Touareg": 3545 },
+                "Volvo": { "S60": 16825, "S80": 7, "S90": 11090, "XC60": 22516, "XC90": 30996 }
+            }
+
+            function processData(data) {
+                var treeData = [];
+
+                var smallBrands = { name: "Other", children: [] };
+
+                for (var brand in data) {
+                    var brandData = { name: brand, children: [] }
+                    var brandTotal = 0;
+                    for (var model in data[brand]) {
+                        brandTotal += data[brand][model];
+                    }
+
+                    for (var model in data[brand]) {
+                        // do not add very small
+                        if (data[brand][model] > 100) {
+                            brandData.children.push({ name: model, count: data[brand][model] });
+                        }
+                    }
+
+                    // add to small brands if total number less than
+                    if (brandTotal > 100000) {
+                        treeData.push(brandData);
+                    }
+                    else {
+                        smallBrands.children.push(brandData)
+                    }
+
+                }
+                treeData.push(smallBrands);
+                return treeData;
+            }
+
+            // create chart
+            var chart = am4core.create("chartdiv", am4charts.TreeMap);
+            chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
+
+            // only one level visible initially
+            chart.maxLevels = 1;
+            // define data fields
+            chart.dataFields.value = "count";
+            chart.dataFields.name = "name";
+            chart.dataFields.children = "children";
+
+            // enable navigation
+            chart.navigationBar = new am4charts.NavigationBar();
+
+            // level 0 series template
+            var level0SeriesTemplate = chart.seriesTemplates.create("0");
+            level0SeriesTemplate.strokeWidth = 2;
+
+            // by default only current level series bullets are visible, but as we need brand bullets to be visible all the time, we modify it's hidden state
+            level0SeriesTemplate.bulletsContainer.hiddenState.properties.opacity = 1;
+            level0SeriesTemplate.bulletsContainer.hiddenState.properties.visible = true;
+            // create hover state
+            var columnTemplate = level0SeriesTemplate.columns.template;
+            var hoverState = columnTemplate.states.create("hover");
+
+            // darken
+            hoverState.adapter.add("fill", function (fill, target) {
+                if (fill instanceof am4core.Color) {
+                    return am4core.color(am4core.colors.brighten(fill.rgb, -0.2));
+                }
+                return fill;
+            })
+
+            // add logo
+            var image = columnTemplate.createChild(am4core.Image);
+            image.opacity = 0.15;
+            image.align = "center";
+            image.valign = "middle";
+            image.width = am4core.percent(80);
+            image.height = am4core.percent(80);
+
+            // add adapter for href to load correct image
+            image.adapter.add("href", function (href, target) {
+                var dataItem = target.parent.dataItem;
+                if (dataItem) {
+                    return "https://www.amcharts.com/lib/images/logos/" + dataItem.treeMapDataItem.name.toLowerCase() + ".png";
+                }
+            });
+
+            // level1 series template
+            var level1SeriesTemplate = chart.seriesTemplates.create("1");
+            level1SeriesTemplate.columns.template.fillOpacity = 0;
+
+            var bullet1 = level1SeriesTemplate.bullets.push(new am4charts.LabelBullet());
+            bullet1.locationX = 0.5;
+            bullet1.locationY = 0.5;
+            bullet1.label.text = "{name}";
+            bullet1.label.fill = am4core.color("#ffffff");
+
+            // level2 series template
+            var level2SeriesTemplate = chart.seriesTemplates.create("2");
+            level2SeriesTemplate.columns.template.fillOpacity = 0;
+
+            var bullet2 = level2SeriesTemplate.bullets.push(new am4charts.LabelBullet());
+            bullet2.locationX = 0.5;
+            bullet2.locationY = 0.5;
+            bullet2.label.text = "{name}";
+            bullet2.label.fill = am4core.color("#ffffff");
+
+            chart.data = processData(data);
+
+        }); // e
+    </script>
+
+</body >
+
+</html >
